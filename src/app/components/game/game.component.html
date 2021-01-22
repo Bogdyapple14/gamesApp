@@ -1,0 +1,49 @@
+<div
+  (click)="selectCard()"
+  class="card"
+  [ngStyle]="{
+    'background-image':
+      ' linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)) , url(' +
+      game.background_image +
+      ')'
+  }"
+>
+  <h3 *ngIf="!selected" [@enterAnimation]>
+    {{ game.name }}
+  </h3>
+  <div class="selected" *ngIf="selected" [@enterAnimation]>
+    <div *ngIf="loading === true">
+      <h2>Loading...</h2>
+    </div>
+
+    <div class="upper-section" *ngIf="loading === false">
+      <h4>{{ game.name }}</h4>
+      <p>{{ selectedGameDetails.description_raw | truncateString: 250 }}</p>
+      <div class="tags-wrap">
+        <h5
+          class="tag"
+          *ngFor="let genre of selectedGameDetails.genres.slice(0, 4)"
+        >
+          {{ genre.name }}
+        </h5>
+      </div>
+    </div>
+
+    <div class="bottom-section">
+      <div
+        class="favorite-section"
+        *ngIf="loading === false"
+        (click)="handleFavoriteEvent()"
+      >
+        <button class="btn">{{ addToFavText }}</button>
+      </div>
+      <div
+        class="see-more-section"
+        *ngIf="loading === false"
+        (click)="seeMoreDetails()"
+      >
+        <button class="btn">Find Out More</button>
+      </div>
+    </div>
+  </div>
+</div>

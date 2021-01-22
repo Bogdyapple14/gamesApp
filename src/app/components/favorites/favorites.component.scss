@@ -1,0 +1,16 @@
+.content {
+  padding-top: 10vh;
+  .col-md-3 {
+    height: 400px;
+  }
+  .title {
+    padding-bottom: 5vh;
+    color: white;
+    font-weight: 600;
+    font-size: 3rem;
+    text-align: center;
+    span {
+      color: #ee0419;
+    }
+  }
+}

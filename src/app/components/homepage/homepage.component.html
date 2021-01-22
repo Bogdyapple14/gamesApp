@@ -1,0 +1,14 @@
+<div class="col-12 search">
+  <span class="p-input-icon-left">
+    <i class="pi pi-search"></i>
+    <input
+      type="text"
+      pInputText
+      placeholder="Search For A Game"
+      class="p-inputtext-lg"
+      #serachBar
+      (keydown.enter)="fetchGames(serachBar.value)"
+    />
+  </span>
+</div>
+<app-games [loading]="loading"></app-games>

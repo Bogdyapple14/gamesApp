@@ -1,0 +1,54 @@
+.container-fluid {
+  min-height: 100vh;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url(../assets/download.jpg);
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  margin: 0;
+  padding: 0;
+  .navbar {
+    border-bottom: 2px solid rgba(238, 4, 25, 0.3);
+    padding: 0px 5vw;
+    background: #333;
+
+    color: white;
+    img {
+      width: 100px;
+    }
+    .menu {
+      display: flex;
+      align-items: center;
+      a {
+        padding: 0 20px;
+        position: relative;
+        color: white;
+        text-decoration: none;
+        font-size: 24px;
+        font-weight: 600;
+        &:hover::after {
+          width: 50%;
+        }
+        &::after {
+          content: "";
+          display: block;
+          width: 0%;
+          background: #ee0419;
+          height: 2px;
+          margin: 0 auto;
+          transition: 0.3s all;
+        }
+      }
+      .active {
+        &::after {
+          content: "";
+          display: block;
+          width: 50%;
+          background: #ee0419;
+          height: 2px;
+          margin: 0 auto;
+        }
+      }
+    }
+  }
+}
