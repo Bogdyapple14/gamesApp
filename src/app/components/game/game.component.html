@@ -19,7 +19,7 @@
     <div class="upper-section" *ngIf="loading === false">
       <h4>{{ game.name }}</h4>
       <p>{{ selectedGameDetails.description_raw | truncateString: 250 }}</p>
-      <div class="tags-wrap">
+      <div class="genres-wrap">
         <h5
           class="tag"
           *ngFor="let genre of selectedGameDetails.genres.slice(0, 2)"

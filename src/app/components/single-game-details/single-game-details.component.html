@@ -4,7 +4,7 @@
       class="card"
       [ngStyle]="{
         'background-image':
-          ' linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)) , url(' +
+          ' linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)) , url(' +
           game.background_image +
           ')'
       }"
@@ -12,6 +12,15 @@
       <h4>
         Name:
         <span>{{ game.name }}</span>
+      </h4>
+      <h4>
+        Released:
+        <span
+          >{{ game.released }} by
+          <span *ngFor="let publisher of game.publishers">{{
+            publisher.name
+          }}</span></span
+        >
       </h4>
       <h4>
         Description:
@@ -29,7 +38,7 @@
       </h4>
       <h4>
         Rating:
-        <span>{{ game.rating }} /</span>
+        <span>{{ game.rating }} / </span>
         <span>{{ game.ratings_count }} votes</span>
       </h4>
       <h4>
@@ -38,17 +47,9 @@
           >{{ platform.platform.name }} /
         </span>
       </h4>
-      <div class="screenshots">
-        <h4>Screenshots:</h4>
-        <img
-          *ngFor="let screenshot of game.screenshots"
-          [src]="screenshot"
-          [alt]="game.name + 'screenshot'"
-        />
-      </div>
-      <div class="tags">
+      <div class="genres">
         <h4>
-          Tags:
+          Genres:
           <span class="tag" *ngFor="let genre of game.genres">
             {{ genre.name }} /
           </span>

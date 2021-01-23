@@ -6,10 +6,10 @@ export class Game {
   playtime: string = '';
   rating: string = '';
   ratings_count: string = '';
-  platforms: any;
-  screenshots: [] = [];
-  stores: [] = [];
-  tags: [] = [];
+  released: string = '';
+  platforms: [] = [];
+  publishers: [] = [];
+  genres: [] = [];
   website: string = '';
   favoritedGame!: boolean;
 }

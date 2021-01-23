@@ -24,6 +24,5 @@ export class SingleGameDetailsComponent implements OnInit {
     this.game = await this.GameDetailsService.fetchGameDetails(
       this.route.snapshot.params['id']
     );
-    console.log(this.game.genres);
   }
 }
