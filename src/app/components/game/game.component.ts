@@ -2,6 +2,8 @@ import { Component, Input, OnInit } from '@angular/core';
 import { trigger, style, animate, transition } from '@angular/animations';
 import { Game } from 'src/app/shared/game.model';
 import { GameDetailsService } from 'src/app/shared/game-details.service';
+import { ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-game',
@@ -27,7 +29,11 @@ export class GameComponent implements OnInit {
   loading!: boolean;
   addToFavText: string = 'Add To Favorites';
 
-  constructor(private GameDetailsService: GameDetailsService) {}
+  constructor(
+    private GameDetailsService: GameDetailsService,
+    private route: ActivatedRoute,
+    private Router: Router
+  ) {}
 
   ngOnInit(): void {}
 
@@ -53,5 +59,8 @@ export class GameComponent implements OnInit {
     }
   }
 
-  seeMoreDetails() {}
+  openGameDetails(id: string, name: string) {
+    const filteredName = name.replace(' ', '-').replace(':', '-').toLowerCase();
+    this.Router.navigate([`/details/${id}/${filteredName}`]);
+  }
 }

@@ -4,7 +4,7 @@
 </h1>
 <h1 *ngIf="loading">Fetching Games...</h1>
 <div class="row">
-  <div class="col-3 games-wrap" *ngFor="let game of games">
+  <div class="col-4 games-wrap" *ngFor="let game of games">
     <app-game [game]="game"></app-game>
   </div>
 </div>

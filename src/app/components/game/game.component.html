@@ -22,7 +22,7 @@
       <div class="tags-wrap">
         <h5
           class="tag"
-          *ngFor="let genre of selectedGameDetails.genres.slice(0, 4)"
+          *ngFor="let genre of selectedGameDetails.genres.slice(0, 2)"
         >
           {{ genre.name }}
         </h5>
@@ -37,12 +37,10 @@
       >
         <button class="btn">{{ addToFavText }}</button>
       </div>
-      <div
-        class="see-more-section"
-        *ngIf="loading === false"
-        (click)="seeMoreDetails()"
-      >
-        <button class="btn">Find Out More</button>
+      <div class="see-more-section" *ngIf="loading === false">
+        <button class="btn" (click)="openGameDetails(game.id, game.name)">
+          Find Out More
+        </button>
       </div>
     </div>
   </div>

@@ -23,11 +23,12 @@ export class GameDetailsService {
     // Search by game series
     this.games.length = 0;
     if (search) {
-      const serachTransformed = search.toLowerCase().replace(' ', '-');
+      const filter = new RegExp(/\W/);
+      const serachTransformed = search.toLowerCase().replace(filter, '-');
       const res = await fetch(
-        `https://api.rawg.io/api/games/${serachTransformed}/game-series?key=c4a8b1cdfdb84d2cbf2dfe3dc3be52fe`
+        `https://api.rawg.io/api/games/${serachTransformed}/game-series?key=6dd6e8a44378428c852e733f6ba920d6`
         // c4a8b1cdfdb84d2cbf2dfe3dc3be52fe
-        // key=6dd6e8a44378428c852e733f6ba920d6
+        // 6dd6e8a44378428c852e733f6ba920d6
       );
       const data = await res.json();
       if (data.count > 1) {

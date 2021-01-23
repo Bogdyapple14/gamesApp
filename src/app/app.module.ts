@@ -11,6 +11,7 @@ import { HomepageComponent } from './components/homepage/homepage.component';
 import { InputTextModule } from 'primeng/inputtext';
 import { TruncateStringPipe } from './shared/truncate-string.pipe';
 import { FavoritesComponent } from './components/favorites/favorites.component';
+import { SingleGameDetailsComponent } from './components/single-game-details/single-game-details.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { FavoritesComponent } from './components/favorites/favorites.component';
     HomepageComponent,
     TruncateStringPipe,
     FavoritesComponent,
+    SingleGameDetailsComponent,
   ],
   imports: [
     BrowserModule,
