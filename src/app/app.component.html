@@ -1,14 +1,35 @@
 <div class="container-fluid">
   <div class="navbar">
-    <img src="../assets/LogoMakr-1YQSUp.png" alt="logo" />
-    <div class="menu">
-      <a
-        routerLink="/"
-        routerLinkActive="active"
-        [routerLinkActiveOptions]="{ exact: true }"
-        >Homepage</a
-      >
-      <a routerLink="/favorites" routerLinkActive="active">Favorites</a>
+    <img
+      routerLink="/"
+      routerLinkActive="active"
+      [routerLinkActiveOptions]="{ exact: true }"
+      src="../assets/LogoMakr-1YQSUp.png"
+      alt="logo"
+    />
+
+    <div class="menu-toggle" #insideElement>
+      <div class="hamburger" (click)="openSideMenu()">
+        <div class="bar1" [ngClass]="{ bars: sideMenuBoolean && inside }"></div>
+        <div class="bar2" [ngClass]="{ bars: sideMenuBoolean && inside }"></div>
+        <div class="bar3" [ngClass]="{ bars: sideMenuBoolean && inside }"></div>
+      </div>
+      <div class="menu" *ngIf="sideMenuBoolean && inside" [@enterAnimation]>
+        <img
+          routerLink="/"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }"
+          src="../assets/LogoMakr-1YQSUp.png"
+          alt="logo"
+        />
+        <a
+          routerLink="/"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }"
+          >Homepage</a
+        >
+        <a routerLink="/favorites" routerLinkActive="active">Favorites</a>
+      </div>
     </div>
   </div>
   <div class="container router-content">

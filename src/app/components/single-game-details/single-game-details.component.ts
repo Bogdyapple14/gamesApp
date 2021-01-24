@@ -9,20 +9,17 @@ import { Game } from 'src/app/shared/game.model';
   styleUrls: ['./single-game-details.component.scss'],
 })
 export class SingleGameDetailsComponent implements OnInit {
-  game!: Game;
-
+  game: any;
   constructor(
     private route: ActivatedRoute,
     private GameDetailsService: GameDetailsService
   ) {}
 
-  ngOnInit(): void {
-    this.FetchGameDetails();
-  }
-
-  async FetchGameDetails() {
-    this.game = await this.GameDetailsService.fetchGameDetails(
+  async ngOnInit(): Promise<void> {
+    await this.GameDetailsService.fetchGameDetails(
       this.route.snapshot.params['id']
-    );
+    ).then((res: Game) => {
+      this.game = res;
+    });
   }
 }

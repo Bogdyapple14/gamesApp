@@ -1,63 +1,62 @@
 <div class="content">
-  <div *ngIf="game; else loading">
-    <div
-      class="card"
-      [ngStyle]="{
-        'background-image':
-          ' linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)) , url(' +
-          game.background_image +
-          ')'
-      }"
-    >
+  <div
+    *ngIf="game; else loading"
+    class="card"
+    [ngStyle]="{
+      'background-image':
+        ' linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)) , url(' +
+        game.background_image +
+        ')'
+    }"
+  >
+    <h4>
+      Name:
+      <span>{{ game.name }}</span>
+    </h4>
+    <h4>
+      Released:
+      <span
+        >{{ game.released }} by
+        <span *ngFor="let publisher of game.publishers">{{
+          publisher.name
+        }}</span></span
+      >
+    </h4>
+    <h4>
+      Description:
+      <span>{{ game.description_raw }}</span>
+    </h4>
+    <h4>
+      Website:
+      <span
+        ><a [href]="game.website">{{ game.name }}</a></span
+      >
+    </h4>
+    <h4>
+      Playtime:
+      <span>{{ game.playtime }} hours</span>
+    </h4>
+    <h4>
+      Rating:
+      <span>{{ game.rating }} / </span>
+      <span>{{ game.ratings_count }} votes</span>
+    </h4>
+    <h4>
+      Platforms:
+      <span *ngFor="let platform of game.platforms"
+        >{{ platform.platform.name }} /
+      </span>
+    </h4>
+    <div class="genres">
       <h4>
-        Name:
-        <span>{{ game.name }}</span>
-      </h4>
-      <h4>
-        Released:
-        <span
-          >{{ game.released }} by
-          <span *ngFor="let publisher of game.publishers">{{
-            publisher.name
-          }}</span></span
-        >
-      </h4>
-      <h4>
-        Description:
-        <span>{{ game.description_raw }}</span>
-      </h4>
-      <h4>
-        Website:
-        <span
-          ><a [href]="game.website">{{ game.name }}</a></span
-        >
-      </h4>
-      <h4>
-        Playtime:
-        <span>{{ game.playtime }} hours</span>
-      </h4>
-      <h4>
-        Rating:
-        <span>{{ game.rating }} / </span>
-        <span>{{ game.ratings_count }} votes</span>
-      </h4>
-      <h4>
-        Platforms:
-        <span *ngFor="let platform of game.platforms"
-          >{{ platform.platform.name }} /
+        Genres:
+        <span class="tag" *ngFor="let genre of game.genres">
+          {{ genre.name }} /
         </span>
       </h4>
-      <div class="genres">
-        <h4>
-          Genres:
-          <span class="tag" *ngFor="let genre of game.genres">
-            {{ genre.name }} /
-          </span>
-        </h4>
-      </div>
     </div>
   </div>
-  <ng-template #loading>
-    <h4 style="color: white">Loading...</h4>
-  </ng-template>
 </div>
+<ng-template #loading>
+  <h4 style="color: white">Loading...</h4>
+</ng-template>
