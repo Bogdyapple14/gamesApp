@@ -40,10 +40,10 @@ export class GameComponent implements OnInit {
   async selectCard() {
     this.selected = !this.selected;
     this.loading = true;
-    this.selectedGameDetails = await this.GameDetailsService.fetchGameDetails(
-      this.game.id
-    );
-    this.loading = false;
+    await this.GameDetailsService.fetchGameDetails(this.game.id).then((res) => {
+      this.selectedGameDetails = res;
+      this.loading = false;
+    });
     if (!this.game.favoritedGame) this.addToFavText = 'Add to Favorites';
     else this.addToFavText = 'Remove From Favorites';
   }

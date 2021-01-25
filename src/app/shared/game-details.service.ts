@@ -23,12 +23,7 @@ export class GameDetailsService {
     // Search by game series
     this.games.length = 0;
     if (search) {
-      const res = await fetch(
-        `https://api.rawg.io/api/games?search=${search}`
-        // `https://api.rawg.io/api/games/${serachTransformed}/game-series?key=6dd6e8a44378428c852e733f6ba920d6`
-        // c4a8b1cdfdb84d2cbf2dfe3dc3be52fe
-        // 6dd6e8a44378428c852e733f6ba920d6
-      );
+      const res = await fetch(`https://api.rawg.io/api/games?search=${search}`);
       const data = await res.json();
       if (data.count > 1) {
         const games: [] = data.results;
