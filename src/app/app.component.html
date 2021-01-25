@@ -14,7 +14,23 @@
         <div class="bar2" [ngClass]="{ bars: sideMenuBoolean && inside }"></div>
         <div class="bar3" [ngClass]="{ bars: sideMenuBoolean && inside }"></div>
       </div>
-      <div class="menu" *ngIf="sideMenuBoolean && inside" [@enterAnimation]>
+      <div class="sideMenu" *ngIf="sideMenuBoolean" [@enterAnimation]>
+        <img
+          routerLink="/"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }"
+          src="../assets/LogoMakr-1YQSUp.png"
+          alt="logo"
+        />
+        <a
+          routerLink="/"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }"
+          >Homepage</a
+        >
+        <a routerLink="/favorites" routerLinkActive="active">Favorites</a>
+      </div>
+      <div class="menu">
         <img
           routerLink="/"
           routerLinkActive="active"
